@@ -1,4 +1,7 @@
-The MIT License (MIT)
+package org.kunstemi.fastforwardsignatures;
+
+/*
+ * The MIT License
 
 Copyright (c) 2015 Axlacor Ltd, (Michael Kunstel)
 
@@ -9,14 +12,34 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+ */
 
+import java.io.IOException;
+import java.math.BigInteger;
+import java.security.PrivateKey;
+
+public class FFSHPrivateKey extends FFSHKey implements PrivateKey {
+	private static final long serialVersionUID = 2919616291465264684L;
+	
+	public FFSHPrivateKey(BigInteger... vals) throws IOException {
+		super(vals);
+	}	
+	
+	public BigInteger getSkipLen() throws IOException {
+		if (vals==null) {
+			setup();
+		}		
+		return vals[3];
+	}
+	
+}
