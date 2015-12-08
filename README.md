@@ -52,7 +52,7 @@ The implemented hash function detailed below provides a 'reasonable shot' at the
  Which is to say, x(n) and y(n) are Linear congruential generators based on the state of P/Q. <br><br>
  Note however, while y(n) uses a fixed increment c=1,  x(n) has a variable incrementor n - which is the current iteration of the fast forwarding hash function. <br><br>
  This acts like an exogenous input that is always changing the transition of the state space. <br>
- The upshot is that this exogonous variable can ensure that the LCG never goes into a short cycle over the required ranged, and even if P and Q repeat, if n isn't the same, the equation will still move to a new state space. <br>
+ The upshot is that this exogonous variable can ensure that the LCG never goes into a short cycle over the required range, and even if P and Q repeat, if n isn't the same, the equation will still move to a new state space. <br>
 
  Step 2: We then put x and y through a singular matrix, e.g.: <br>
 
@@ -132,10 +132,5 @@ This project is built to spark interest rather than have a final answer.   <br>
 Finding other ff hash functions that are SHORs safe, cryptographicly secure and non-reversible are an exercise left to the reader. <br>
 (please do - I would love a SHA-4 to accomplish this!)
 
-
-
-
-
-
-
-
+Released under MIT license, see LICENSE file for details.  Use at own risk.
+Thanks - Michael Kunstel.
